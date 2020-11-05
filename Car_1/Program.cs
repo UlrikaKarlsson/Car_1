@@ -22,10 +22,40 @@ namespace Car_1
             {
                 return numOfMil;
             }
+            public bool UpdateMil(int newNumOfMil)
+            {
+                if (newNumOfMil < numOfMil)
+                {
+                    return false;
+                }
+                else
+                {
+                    numOfMil = newNumOfMil;
+                    return true;
+                }
+            }
         }
         static void Main(string[] args)
         {
             Car C = new Car("Lada", "1990", 137682);
+            Console.WriteLine("Antal mil = {0}", C.NumOfMil());
+            if (C.UpdateMil(137672))
+            {
+                Console.WriteLine("Miltalet uppdaterades!");
+            }
+            else
+            {
+                Console.WriteLine("Miltalet var fel, uppdaterades inte!");
+            }
+            Console.WriteLine("Antal mil = {0}", C.NumOfMil());
+            if (C.UpdateMil(137685))
+            {
+                Console.WriteLine("Miltalet uppdaterades!");
+            }
+            else
+            {
+                Console.WriteLine("Miltalet var fel, uppdaterades inte!");
+            }
             Console.WriteLine("Antal mil = {0}", C.NumOfMil());
         }
     }
